@@ -55,5 +55,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--引入自己通过maven打包的实体类-->
+        <dependency>
+            <groupId>com.jdy.springcloud</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 </project>

@@ -21,7 +21,7 @@ public class OrderController {
 
     @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){
-        return template.postForObject(PAYMENT_URL+"/payment/create",payment,CommonResult.class);
+        return template.postForObject(PAYMENT_URL+"/payment/create",payment, CommonResult.class);
     }
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPayment(@PathVariable("id") Long id){

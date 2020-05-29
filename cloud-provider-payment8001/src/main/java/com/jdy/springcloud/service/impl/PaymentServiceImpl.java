@@ -4,11 +4,8 @@ package com.jdy.springcloud.service.impl;
 import com.jdy.springcloud.dao.PaymentDao;
 import com.jdy.springcloud.entities.Payment;
 import com.jdy.springcloud.service.PaymentService;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @auther zzyy
