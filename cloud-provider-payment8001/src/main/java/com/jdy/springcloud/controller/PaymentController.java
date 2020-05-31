@@ -7,6 +7,7 @@ import com.jdy.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -16,14 +17,17 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    @Value("${server.port}")
+    private String serverPort;
+
     @GetMapping(value = "/payment/get/{id}")
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         if(payment != null) {
-            CommonResult<Payment> commonResult = new CommonResult(200, "查询成功", payment);
+            CommonResult<Payment> commonResult = new CommonResult(200, "查询成功"+serverPort, payment);
             return commonResult;
         }else{
-            return new CommonResult(444,"没有对应记录,查询ID:");
+            return new CommonResult(444,"没有对应记录,查询ID:"+serverPort);
         }
     }
 
