@@ -11,8 +11,8 @@ import javax.swing.*;
  * @create 2020-05-31 9:32
  * @EnableEurekaServer:说明是服务注册中心
  */
-@SpringBootApplication
 @EnableEurekaServer
+@SpringBootApplication
 public class EurekaMain7001 {
     public static void main(String[] args) {
         SpringApplication.run(EurekaMain7001.class,args);

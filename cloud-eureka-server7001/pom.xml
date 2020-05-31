@@ -17,7 +17,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
         </dependency>
-
         <!-- 引入自己定义的api通用包，可以使用Payment支付Entity -->
         <dependency>
             <groupId>com.jdy.springcloud</groupId>
