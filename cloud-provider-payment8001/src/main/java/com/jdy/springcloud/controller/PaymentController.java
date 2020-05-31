@@ -24,7 +24,7 @@ public class PaymentController {
     public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         if(payment != null) {
-            CommonResult<Payment> commonResult = new CommonResult(200, "查询成功"+serverPort, payment);
+            CommonResult<Payment> commonResult = new CommonResult(200, "查啊实打实询成功"+serverPort, payment);
             return commonResult;
         }else{
             return new CommonResult(444,"没有对应记录,查询ID:"+serverPort);
