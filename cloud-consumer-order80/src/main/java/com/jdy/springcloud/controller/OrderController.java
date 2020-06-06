@@ -70,10 +70,9 @@ public class OrderController {
 
     @GetMapping("/consumer/payment/lb")
     public String getPayment(){
+        //获取服务对应的所有服务器
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-
-        if(instances == null || instances.size() <= 0)
-        {
+        if(instances == null || instances.size() <= 0) {
             return null;
         }
         ServiceInstance serviceInstance = loadBalancer.instance(instances);
