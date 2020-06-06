@@ -13,6 +13,6 @@ eureka:
       defaultZone: http://eureka7002.com:7002/eureka/
       #单机就是7001自己
       #defaultZone: http://eureka7001.com:7001/eureka/
-  server:
-    enable-self-preservation: false    #关闭Eureka的自我保护机制
-    eviction-interval-timer-in-ms: 2000
+#  server:
+#    enable-self-preservation: false    #关闭Eureka的自我保护机制
+#    eviction-interval-timer-in-ms: 2000
