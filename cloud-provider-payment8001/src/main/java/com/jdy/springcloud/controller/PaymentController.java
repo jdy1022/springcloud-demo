@@ -12,7 +12,9 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Time;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 
 @RestController
@@ -64,6 +66,16 @@ public class PaymentController {
     }
     @GetMapping(value = "/payment/lb")
     public String getPaymentLB() {
+        return serverPort;
+    }
+
+    @GetMapping(value = "/payment/feign/timeout")
+    public String getPaymentFeign() {
+        try{
+            TimeUnit.SECONDS.sleep(3);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         return serverPort;
     }
 }
