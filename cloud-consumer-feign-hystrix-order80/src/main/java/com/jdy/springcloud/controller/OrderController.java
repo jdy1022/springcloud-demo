@@ -26,5 +26,26 @@ public class OrderController {
         return result;
     }
 
+    //调用服务提供方最多等待1.5秒
+    @GetMapping("/consumer/hystrix/timeout/{id}")
+    @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value="1500")
+    })
+    public String paymentInfo_TimeOut(@PathVariable("id") Integer id)
+    {
+        String result = paymentHystrixService.paymentInfo_TimeOut(id);
+        return result;
+    }
+    public String paymentTimeOutFallbackMethod(@PathVariable("id") Integer id)
+    {
+        return "我是消费者80,对方支付系统繁忙请10秒钟后再试或者自己运行出错请检查自己,o(╥﹏╥)o";
+    }
+
+    /*// 下面是全局fallback方法
+    public String payment_Global_FallbackMethod()
+    {
+        return "Global异常处理信息，请稍后再试，/(ㄒoㄒ)/~~";
+    }*/
+
 
 }
