@@ -80,4 +80,12 @@ public class OrderController {
 
         return template.getForObject(uri+"/payment/lb",String.class);
     }
+
+    @GetMapping("/consumer/payment/zipkin")
+    public String paymentZipkin()
+    {
+        String result = template.getForObject("http://localhost:8001"+"/payment/zipkin/", String.class);
+        return result;
+    }
+
 }
